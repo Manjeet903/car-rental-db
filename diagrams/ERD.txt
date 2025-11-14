@@ -1,0 +1,56 @@
+
+Link to dbdiagram.io
+https://dbdiagram.io/d/Car-Rental-6916e8406735e11170cc84ef
+
+                              +-------------------+
+                              |     customers     |
+                              +-------------------+
+                              | customer_id (PK)  |
+                              | name              |
+                              | phone_number      |
+                              | cnic              |
+                              | driver_license    |
+                              +---------+---------+
+                                        |
+                                        | 1-to-many
+                                        |
+                                        v
+                              +-------------------+
+                              |     bookings      |
+                              +-------------------+
+                              | booking_id (PK)   |
+                              | customer_id (FK)  |
+                              | car_id (FK)       |
+                              | start_date        |
+                              | end_date          |
+                              | total_amount      |
+                              | booking_status    |
+                              +----+---------+----+
+                                   |         |
+                 1-to-many         |         | 1-to-many
+                                   |         |
+                                   v         v
+                         +----------------+   +----------------+
+                         |    payments    |   |   cars        |
+                         +----------------+   +----------------+
+                         | payment_id (PK)|   | car_id (PK)   |
+                         | booking_id (FK)|   | model         |
+                         | amount_paid    |   | brand         |
+                         | payment_date   |   | reg_number    |
+                         +----------------+   | type          |
+                                               | daily_price   |
+                                               | availability  |
+                                               +--------+------+
+                                                        |
+                                                        | 1-to-many
+                                                        |
+                                                        v
+                                            +------------------------+
+                                            |      maintenance       |
+                                            +------------------------+
+                                            | maintenance_id (PK)    |
+                                            | car_id (FK)            |
+                                            | maintenance_date       |
+                                            | description            |
+                                            | cost                   |
+                                            +------------------------+
