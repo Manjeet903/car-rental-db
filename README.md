@@ -25,5 +25,3 @@ It was built as part of Codecademy's "Designing a Database From Scratch" project
 
    -- then insert sample data:
    \i path/to/sql/sample_data.sql
-"# car-rental-db" 
-"# car-rantal-db" 
